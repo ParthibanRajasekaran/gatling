@@ -30,4 +30,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.MY_TOKEN }}
-          publish_dir: ./target/gatling/*/index.html
+          publish_dir: /home/runner/work/gatling/gatling/target/gatling/*/index.html
