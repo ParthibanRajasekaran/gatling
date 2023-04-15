@@ -27,7 +27,7 @@ jobs:
         run: mvn gatling:test -Dgatling.simulationClass="com.gatling.demo.api.CrudApiTest"
 
       - name: Publish report to GitHub Pages
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: ./target/gatling
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/gatling
