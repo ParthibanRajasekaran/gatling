@@ -1,0 +1,33 @@
+name: Gatling Maven Workflow
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: "12 12 * * *"
+
+jobs:
+  Performance-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run Gatling tests
+        run: mvn gatling:test -Dgatling.simulationClass="com.gatling.demo.api.CrudApiTest"
+
+      - name: Publish report to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./target/gatling
