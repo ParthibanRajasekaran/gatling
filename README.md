@@ -28,3 +28,6 @@ git clone https://github.com/ParthibanRajasekaran/gatling.git
 - API simulation classes can be added to `src/test/scala/com/gatling/demo/api`
 - GUI simulation classes can be added to `src/test/scala/com/gatling/demo/ui`
 
+
+_Visit here for_ [Notion notes](https://www.notion.so/Gatling-049c505f89a94cda94caab9b4f189e62?pvs=4)
+
