@@ -24,10 +24,11 @@ jobs:
         run: mvn gatling:verify
 
       - name: Run Gatling tests
-        run: mvn gatling:test -Dgatling.simulationClass="com.gatling.demo.api.CrudApiTest" -Dgatling.directory="target/gatling/crudapitest-report"
+        run: mvn gatling:test -Dgatling.simulationClass="com.gatling.demo.api.CrudApiTest"
 
       - name: Publish report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.MY_TOKEN }}
-          publish_dir: ./target/gatling/crudapitest-report
+          publish_dir: /home/runner/work/gatling/gatling/target/gatling/crudapitest-*/index.html
+          publish_branch: gh-pages
